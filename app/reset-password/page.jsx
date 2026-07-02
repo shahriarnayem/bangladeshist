@@ -1,3 +1,10 @@
-'use client';
-import { useSearchParams,useRouter } from 'next/navigation';import { useState } from 'react';
-export default function Reset(){const sp=useSearchParams();const r=useRouter();const [password,setPassword]=useState('');async function submit(e){e.preventDefault();const res=await fetch('/api/auth/reset-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:sp.get('token'),password})});const d=await res.json();if(!res.ok)return alert(d.error||'Failed');alert('Password changed');r.push('/login')}return <main className="container py-16"><div className="card p-8 max-w-3xl mx-auto"><h1 className="text-3xl font-black">Reset Password</h1><form onSubmit={submit} className="grid gap-4 mt-8"><input className="input" type="password" value={password} onChange={e=>setPassword(e.target.value)} placeholder="New password"/><button className="btn-primary">Reset Password</button></form></div></main>}
+import { Suspense } from "react";
+import ResetPasswordForm from "./ResetPasswordForm";
+
+export default function ResetPasswordPage() {
+  return (
+    <Suspense fallback={<main className="container py-10">Loading...</main>}>
+      <ResetPasswordForm />
+    </Suspense>
+  );
+}
