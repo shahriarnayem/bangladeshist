@@ -1,0 +1,1 @@
+export default function Settings(){return <div><h1 className="text-3xl font-black mb-8">Settings</h1><div className="card p-6"><p className="muted">Site settings and AdSense controls can be added here. Current version has AdSense-ready slots on homepage and article pages.</p></div></div>}

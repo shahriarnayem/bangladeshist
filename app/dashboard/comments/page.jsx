@@ -1,0 +1,3 @@
+import { getDb } from '@/lib/mongodb';import CommentActions from '@/components/CommentActions';
+export const dynamic='force-dynamic';
+export default async function Comments(){const db=await getDb();const comments=await db.collection('comments').find({}).sort({createdAt:-1}).toArray();return <div><h1 className="text-3xl font-black mb-8">Comments</h1><div className="card overflow-hidden"><table><thead><tr><th>Name</th><th>Comment</th><th>Status</th><th>Actions</th></tr></thead><tbody>{comments.map(c=><tr key={c._id.toString()}><td>{c.name}</td><td>{c.content}</td><td>{c.status}</td><td><CommentActions id={c._id.toString()} status={c.status}/></td></tr>)}</tbody></table></div></div>}

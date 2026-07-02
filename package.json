@@ -1,0 +1,28 @@
+{
+  "name": "magazine-full-cms",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "seed": "node scripts/seed.js"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "latest",
+    "bcryptjs": "latest",
+    "clsx": "latest",
+    "dotenv": "latest",
+    "lucide-react": "latest",
+    "mongodb": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest"
+  }
+}

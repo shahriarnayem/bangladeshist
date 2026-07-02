@@ -1,0 +1,5 @@
+import Link from 'next/link';
+import { Search, User } from 'lucide-react';
+import { getSession } from '@/lib/session';
+const cats=['world','sports','politics','tech','entertainment','finance','lifestyle'];
+export default async function Header(){const s=await getSession();return <header className="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-neutral-900"><div className="container h-20 flex items-center justify-between gap-6"><Link href="/" className="font-black text-xl">bangladeshist<span className="text-red-500">.</span></Link><nav className="hidden lg:flex gap-8 muted text-sm">{cats.map(c=><Link key={c} href={`/category/${c}`}>{c}</Link>)}</nav><div className="flex items-center gap-3"><Link href="/search" className="btn-secondary p-4"><Search size={18}/></Link>{s?<Link className="btn-primary flex gap-2 items-center" href="/dashboard"><User size={16}/>{s.name}</Link>:<Link className="btn-primary flex gap-2 items-center" href="/login"><User size={16}/>Login</Link>}</div></div></header>}

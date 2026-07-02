@@ -1,0 +1,3 @@
+'use client';
+import Link from 'next/link';import { useRouter } from 'next/navigation';
+export default function ArticleActions({id,slug}){const r=useRouter();async function del(){if(!confirm('Delete article?'))return;const res=await fetch(`/api/articles/${id}`,{method:'DELETE'});if(!res.ok)return alert((await res.json()).error||'Failed');r.refresh()}return <div className="flex gap-3"><Link className="text-red-500" href={`/article/${slug}`}>View</Link><Link className="text-red-500" href={`/dashboard/articles/${id}`}>Edit</Link><button className="text-red-500" onClick={del}>Delete</button></div>}

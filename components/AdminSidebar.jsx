@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function AdminSidebar(){return <aside className="sidebar card p-4"><b className="block mb-3">Dashboard</b><Link href="/dashboard">Overview</Link><Link href="/dashboard/articles">Articles</Link><Link href="/dashboard/articles/new">Add Article</Link><Link href="/dashboard/comments">Comments</Link><Link href="/dashboard/users">Users</Link><Link href="/dashboard/settings">Settings</Link></aside>}

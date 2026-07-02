@@ -1,0 +1,3 @@
+'use client';
+import { useState } from 'react';
+export default function CommentForm({articleId}){const [content,setContent]=useState('');const [msg,setMsg]=useState('');async function submit(e){e.preventDefault();const res=await fetch('/api/comments',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({articleId,content})});const d=await res.json();setMsg(d.error||'Comment submitted for approval');setContent('')}return <form onSubmit={submit} className="card p-5 grid gap-4"><textarea className="input min-h-28" value={content} onChange={e=>setContent(e.target.value)} placeholder="Write comment" required/><button className="btn-primary">Submit Comment</button>{msg&&<p className="muted">{msg}</p>}</form>}
